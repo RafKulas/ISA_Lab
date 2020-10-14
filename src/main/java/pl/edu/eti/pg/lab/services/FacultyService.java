@@ -3,9 +3,7 @@ package pl.edu.eti.pg.lab.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.edu.eti.pg.lab.entity.Faculty;
-import pl.edu.eti.pg.lab.entity.Student;
 import pl.edu.eti.pg.lab.repository.FacultyRepository;
-import pl.edu.eti.pg.lab.repository.StudentRepository;
 
 import java.util.List;
 import java.util.Optional;

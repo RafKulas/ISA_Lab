@@ -1,13 +1,11 @@
 package pl.edu.eti.pg.lab.repository;
 
-import lombok.extern.java.Log;
 import org.springframework.stereotype.Component;
 import pl.edu.eti.pg.lab.entity.Faculty;
 import pl.edu.eti.pg.lab.entity.Student;
 
 import java.util.*;
 
-@Log
 @Component
 class DataStore {
 	private final Set<Faculty> faculties = new HashSet<>();

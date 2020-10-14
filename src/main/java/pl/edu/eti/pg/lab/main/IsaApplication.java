@@ -1,4 +1,4 @@
-package pl.edu.eti.pg.lab;
+package pl.edu.eti.pg.lab.main;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
