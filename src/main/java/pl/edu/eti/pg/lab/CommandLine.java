@@ -1,4 +1,4 @@
-package pl.edu.eti.pg.lab.configuration;
+package pl.edu.eti.pg.lab;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;

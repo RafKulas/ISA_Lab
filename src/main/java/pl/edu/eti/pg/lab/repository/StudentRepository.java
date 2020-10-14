@@ -28,6 +28,14 @@ public class StudentRepository implements Repository<Integer, Student> {
 
 	@Override
 	public void create(Student entity) {
+		if (store.findFaculty(entity.getFaculty().getName()).isEmpty()) {
+			throw new IllegalArgumentException(
+					String.format("Faculty named \"%s\" doesn't exist", entity.getFaculty().getName()));
+		}
+		if (!store.findFaculty(entity.getFaculty().getName()).get().getFieldsOfStudies().contains(entity.getFieldOfStudies())) {
+			throw new IllegalArgumentException(
+					String.format("Faculty \"%s\" doesn't have field of studies called \"%s\"", entity.getFaculty().getName(), entity.getFieldOfStudies()));
+		}
 		store.updateStudent(entity);
 	}
 
