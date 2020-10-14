@@ -1,7 +1,6 @@
-package pl.edu.eti.pg.lab.student.entity;
+package pl.edu.eti.pg.lab.entity;
 
 import lombok.*;
-import pl.edu.eti.pg.lab.faculty.entity.Faculty;
 
 @Getter
 @Setter
@@ -18,5 +17,5 @@ public class Student {
 
 	private String fieldOfStudies;
 
-	private int indexNumber;
+	private int indexNumber; //PK
 }

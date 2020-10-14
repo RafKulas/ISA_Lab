@@ -1,15 +1,15 @@
-package pl.edu.eti.pg.lab.datastore;
+package pl.edu.eti.pg.lab.repository;
 
 import lombok.extern.java.Log;
 import org.springframework.stereotype.Component;
-import pl.edu.eti.pg.lab.faculty.entity.Faculty;
-import pl.edu.eti.pg.lab.student.entity.Student;
+import pl.edu.eti.pg.lab.entity.Faculty;
+import pl.edu.eti.pg.lab.entity.Student;
 
 import java.util.*;
 
 @Log
 @Component
-public class DataStore {
+class DataStore {
 	private final Set<Faculty> faculties = new HashSet<>();
 	private final Set<Student> students = new HashSet<>();
 
@@ -31,6 +31,27 @@ public class DataStore {
 				},
 				() -> faculties.add(faculty)
 		);
+	}
+
+	public synchronized void removeFaculty(String name) {
+		findFaculty(name).ifPresentOrElse(
+				faculties::remove,
+				() -> {
+					throw new IllegalArgumentException(
+							String.format("Faculty called \"%s\" doesn't exist.", name));
+				});
+	}
+
+	public synchronized void updateFaculty(Faculty faculty) {
+		findFaculty(faculty.getName()).ifPresentOrElse(
+				original -> {
+					faculties.remove(original);
+					faculties.add(faculty);
+				},
+				() -> {
+					throw new IllegalArgumentException(
+							String.format("Faculty called \"%s\" doesn't exist.", faculty.getName()));
+				});
 	}
 
 	public synchronized List<Student> findAllStudents() {

@@ -1,4 +1,4 @@
-package pl.edu.eti.pg.lab.faculty.entity;
+package pl.edu.eti.pg.lab.entity;
 
 import lombok.*;
 
@@ -13,7 +13,7 @@ import java.util.List;
 public class Faculty {
 	private int amountOfStudents;
 
-	private String name;
+	private String name; //PK
 
 	@ToString.Exclude
 	private List<String> fieldsOfStudies;
