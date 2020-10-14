@@ -6,13 +6,16 @@ import pl.edu.eti.pg.lab.entity.Student;
 import java.util.List;
 import java.util.Optional;
 
+@org.springframework.stereotype.Repository
 public class StudentRepository implements Repository<Integer, Student> {
-	DataStore store;
+
+	private final DataStore store;
 
 	@Autowired
 	public StudentRepository(DataStore store) {
 		this.store = store;
 	}
+
 	@Override
 	public Optional<Student> find(Integer primaryKey) {
 		return store.findStudent(primaryKey);
