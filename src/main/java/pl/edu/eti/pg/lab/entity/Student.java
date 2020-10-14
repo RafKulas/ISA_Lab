@@ -1,5 +1,7 @@
 package pl.edu.eti.pg.lab.entity;
 
+import java.util.Objects;
+
 public class Student {
 	private String name;
 
@@ -57,5 +59,26 @@ public class Student {
 
 	public void setIndexNumber(int indexNumber) {
 		this.indexNumber = indexNumber;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(name, surname, indexNumber, faculty, fieldOfStudies);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null)
+			return false;
+		if (obj.getClass() != this.getClass())
+			return false;
+		Student other = (Student) obj;
+		return name.equals(other.name) && surname.equals(other.surname) && indexNumber==other.indexNumber
+				&& fieldOfStudies.equals(other.fieldOfStudies) && faculty.equals(other.faculty);
+	}
+
+	@Override
+	public String toString() {
+		return String.format("%s %20s %d - %s (%s)", name, surname, indexNumber, fieldOfStudies, faculty.getName());
 	}
 }

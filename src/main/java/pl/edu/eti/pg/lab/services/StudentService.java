@@ -26,7 +26,7 @@ public class StudentService {
 	}
 
 	public void create(Student entity) {
-		repository.update(entity);
+		repository.create(entity);
 	}
 
 	public void delete(Integer primaryKey) {

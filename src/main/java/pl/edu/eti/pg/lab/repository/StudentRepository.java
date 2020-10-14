@@ -36,7 +36,7 @@ public class StudentRepository implements Repository<Integer, Student> {
 			throw new IllegalArgumentException(
 					String.format("Faculty \"%s\" doesn't have field of studies called \"%s\"", entity.getFaculty().getName(), entity.getFieldOfStudies()));
 		}
-		store.updateStudent(entity);
+		store.addStudent(entity);
 	}
 
 	@Override
