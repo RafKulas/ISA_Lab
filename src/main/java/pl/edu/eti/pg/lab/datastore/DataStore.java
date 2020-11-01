@@ -1,8 +1,8 @@
-package pl.edu.eti.pg.lab.repository;
+package pl.edu.eti.pg.lab.datastore;
 
 import org.springframework.stereotype.Component;
-import pl.edu.eti.pg.lab.entity.Faculty;
-import pl.edu.eti.pg.lab.entity.Student;
+import pl.edu.eti.pg.lab.faculty.entity.Faculty;
+import pl.edu.eti.pg.lab.student.entity.Student;
 
 import java.util.*;
 
@@ -19,6 +19,10 @@ class DataStore {
 		return faculties.stream()
 				.filter(faculty -> faculty.getName().equals(name))
 				.findFirst();
+	}
+
+	public synchronized Optional<Faculty> findByDean(String dean) {
+		return faculties.stream().filter(f -> f.getDean().equals(dean)).findFirst();
 	}
 
 	public synchronized void createFaculty(Faculty faculty) {

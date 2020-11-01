@@ -1,10 +1,11 @@
-package pl.edu.eti.pg.lab.services;
+package pl.edu.eti.pg.lab.student.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.edu.eti.pg.lab.entity.Student;
-import pl.edu.eti.pg.lab.repository.StudentRepository;
+import pl.edu.eti.pg.lab.student.entity.Student;
+import pl.edu.eti.pg.lab.student.repository.StudentRepository;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,22 +19,25 @@ public class StudentService {
 	}
 
 	public Optional<Student> find(Integer primaryKey) {
-		return repository.find(primaryKey);
+		return repository.findById(primaryKey);
 	}
 
 	public List<Student> findAll() {
 		return repository.findAll();
 	}
 
-	public void create(Student entity) {
-		repository.create(entity);
+	@Transactional
+	public void delete(Student entity) {
+		repository.delete(entity);
 	}
 
-	public void delete(Integer primaryKey) {
-		repository.delete(primaryKey);
+	@Transactional
+	public Student create(Student entity) {
+		return repository.save(entity);
 	}
 
+	@Transactional
 	public void update(Student entity) {
-		repository.update(entity);
+		repository.save(entity);
 	}
 }

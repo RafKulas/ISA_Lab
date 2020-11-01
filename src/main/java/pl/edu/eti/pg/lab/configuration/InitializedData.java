@@ -2,13 +2,12 @@ package pl.edu.eti.pg.lab.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import pl.edu.eti.pg.lab.entity.Faculty;
-import pl.edu.eti.pg.lab.entity.Student;
-import pl.edu.eti.pg.lab.services.FacultyService;
-import pl.edu.eti.pg.lab.services.StudentService;
+import pl.edu.eti.pg.lab.faculty.entity.Faculty;
+import pl.edu.eti.pg.lab.student.entity.Student;
+import pl.edu.eti.pg.lab.faculty.service.FacultyService;
+import pl.edu.eti.pg.lab.student.services.StudentService;
 
 import javax.annotation.PostConstruct;
-import java.util.List;
 
 @Component
 public class InitializedData {
@@ -24,8 +23,8 @@ public class InitializedData {
 
 	@PostConstruct
 	public void initializeData() {
-		Faculty eti = new Faculty(300, "ETI", List.of("Informatics", "Data engineering"));
-		Faculty oio = new Faculty(200, "OIO", List.of("Ocean Engineering", "Transport and Logistics"));
+		Faculty eti = new Faculty(300, "ETI", "prof. dr hab. inż. Jacek Stefański");
+		Faculty oio = new Faculty(200, "OIO", "dr hab. inż. Wojciech Litwin");
 
 		facultyService.create(eti);
 		facultyService.create(oio);

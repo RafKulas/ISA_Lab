@@ -1,8 +1,11 @@
-package pl.edu.eti.pg.lab.entity;
+package pl.edu.eti.pg.lab.student.dto;
 
-import java.util.Objects;
+import pl.edu.eti.pg.lab.faculty.entity.Faculty;
+import pl.edu.eti.pg.lab.student.entity.Student;
 
-public class Student {
+import java.util.function.Function;
+
+public class GetStudentResponse {
 	private String name;
 
 	private String surname;
@@ -11,9 +14,15 @@ public class Student {
 
 	private String fieldOfStudies;
 
-	private int indexNumber; //PK
+	private int indexNumber;
 
-	public Student(String name, String surname, Faculty faculty, String fieldOfStudies, int indexNumber) {
+	public static Function<Student, GetStudentResponse> entityToDtoMapper() {
+		return request ->
+				new GetStudentResponse(request.getName(), request.getSurname(),
+						request.getFaculty(), request.getFieldOfStudies(), request.getIndexNumber());
+	}
+
+	public GetStudentResponse(String name, String surname, Faculty faculty, String fieldOfStudies, int indexNumber) {
 		this.name = name;
 		this.surname = surname;
 		this.faculty = faculty;
@@ -59,26 +68,5 @@ public class Student {
 
 	public void setIndexNumber(int indexNumber) {
 		this.indexNumber = indexNumber;
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(name, surname, indexNumber, faculty, fieldOfStudies);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (obj == null)
-			return false;
-		if (obj.getClass() != this.getClass())
-			return false;
-		Student other = (Student) obj;
-		return name.equals(other.name) && surname.equals(other.surname) && indexNumber==other.indexNumber
-				&& fieldOfStudies.equals(other.fieldOfStudies) && faculty.equals(other.faculty);
-	}
-
-	@Override
-	public String toString() {
-		return String.format("%s %20s %d - %s (%s)", name, surname, indexNumber, fieldOfStudies, faculty.getName());
 	}
 }
