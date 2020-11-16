@@ -18,6 +18,6 @@ public class FacultyEventRepository {
 	}
 
 	public void delete(Faculty faculty) {
-		restTemplate.delete("/students/{faculty}", faculty.getName());
+		restTemplate.delete("/faculties/{faculty}", faculty.getName());
 	}
 }

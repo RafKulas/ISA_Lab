@@ -24,19 +24,5 @@ public class InitializedData {
 
 		facultyService.create(eti);
 		facultyService.create(oio);
-
-//		Student rafal = new Student("Rafal", "Kulik", eti, "Informatics", 175750);
-//		Student piotr = new Student("Piotr", "Kaczmarek", eti, "Informatics", 167342);
-//		Student marta = new Student("Marta", "Morska", oio, "Ocean Engineering", 166654);
-//		Student pawel = new Student("Pawel", "Oceaniczny", oio, "Transport and Logistics", 189991);
-//		Student zuzia = new Student("Zuzia", "Jeziorowska", oio, "Ocean Engineering", 101010);
-//		Student kamil = new Student("Kamil", "Kacprowicz", eti, "Data engineering", 156789);
-//
-//		studentService.create(rafal);
-//		studentService.create(piotr);
-//		studentService.create(marta);
-//		studentService.create(pawel);
-//		studentService.create(zuzia);
-//		studentService.create(kamil);
 	}
 }
