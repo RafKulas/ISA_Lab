@@ -23,8 +23,8 @@ public class InitializedData {
 
 	@PostConstruct
 	public void initializeData() {
-		Faculty eti = new Faculty(300, "ETI", "prof. dr hab. inż. Jacek Stefański");
-		Faculty oio = new Faculty(200, "OIO", "dr hab. inż. Wojciech Litwin");
+		Faculty eti = new Faculty("ETI");
+		Faculty oio = new Faculty("OIO");
 
 		facultyService.create(eti);
 		facultyService.create(oio);

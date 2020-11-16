@@ -1,6 +1,5 @@
 package pl.edu.eti.pg.lab.faculty.entity;
 
-import org.hibernate.annotations.OnDelete;
 import pl.edu.eti.pg.lab.student.entity.Student;
 
 import javax.persistence.*;
@@ -11,33 +10,18 @@ import java.util.Objects;
 @Entity
 @Table(name = "faculties")
 public class Faculty implements Serializable {
-	private int amountOfStudents;
-
 	@Id
 	private String name; //PK
-
-	@Column(unique = true)
-	private String dean;
 
 	@OneToMany(cascade = CascadeType.REMOVE, mappedBy = "faculty")
 	private List<Student> studentList;
 
-	public Faculty(int amountOfStudents, String name, String dean) {
-		this.amountOfStudents = amountOfStudents;
+	public Faculty(String name) {
 		this.name = name;
-		this.dean = dean;
 	}
 
 	public Faculty() {
 
-	}
-
-	public int getAmountOfStudents() {
-		return amountOfStudents;
-	}
-
-	public void setAmountOfStudents(int amountOfStudents) {
-		this.amountOfStudents = amountOfStudents;
 	}
 
 	public String getName() {
@@ -48,17 +32,9 @@ public class Faculty implements Serializable {
 		this.name = name;
 	}
 
-	public String getDean() {
-		return dean;
-	}
-
-	public void setDean(String dean) {
-		this.dean = dean;
-	}
-
 	@Override
 	public int hashCode() {
-		return Objects.hash(amountOfStudents, name, dean);
+		return Objects.hash(name);
 	}
 
 	@Override
@@ -68,11 +44,11 @@ public class Faculty implements Serializable {
 		if (obj.getClass() != this.getClass())
 			return false;
 		Faculty other = (Faculty) obj;
-		return name.equals(other.name) && amountOfStudents == other.amountOfStudents && dean.equals(other.dean);
+		return name.equals(other.name);
 	}
 
 	@Override
 	public String toString() {
-		return String.format("%s, %s: %d", name, dean, amountOfStudents);
+		return name;
 	}
 }

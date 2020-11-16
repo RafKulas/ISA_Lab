@@ -6,5 +6,4 @@ import pl.edu.eti.pg.lab.student.entity.Student;
 
 @Repository
 public interface StudentRepository extends JpaRepository<Student, Integer> {
-
 }

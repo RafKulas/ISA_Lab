@@ -9,7 +9,9 @@ import pl.edu.eti.pg.lab.student.dto.*;
 import pl.edu.eti.pg.lab.student.entity.Student;
 import pl.edu.eti.pg.lab.student.services.StudentService;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("api/students")
@@ -18,16 +20,21 @@ public class StudentController {
 	private final StudentService studentService;
 	private final FacultyService facultyService;
 
+	@Autowired
 	public StudentController(StudentService studentService, FacultyService facultyService) {
 		this.studentService = studentService;
 		this.facultyService = facultyService;
 	}
 
-	@Autowired
-
 	@GetMapping
-	public ResponseEntity<GetStudentsResponse> getStudents() {
-		return ResponseEntity.ok(GetStudentsResponse.entityToDtoMapper().apply(studentService.findAll()));
+	public ResponseEntity<GetStudentsResponse> getStudents(@RequestParam(required = false) String faculty) {
+		List<Student> students = studentService.findAll();
+		if (faculty != null) {
+			students = students.stream()
+					.filter(s -> s.getFaculty().getName().toLowerCase().equals(faculty.toLowerCase()))
+					.collect(Collectors.toList());
+		}
+		return ResponseEntity.ok(GetStudentsResponse.entityToDtoMapper().apply(students));
 	}
 
 	@GetMapping("{index}")
@@ -69,8 +76,6 @@ public class StudentController {
 		}
 		return ResponseEntity.notFound().build();
 	}
-
-
 
 	@GetMapping("fieldOfStudies")
 	public ResponseEntity<GetFieldsOfStudyResponse> getFieldsOfStudy() {

@@ -28,39 +28,19 @@ public class CreateStudentRequest {
 		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public String getSurname() {
 		return surname;
-	}
-
-	public void setSurname(String surname) {
-		this.surname = surname;
 	}
 
 	public String getFaculty() {
 		return faculty;
 	}
 
-	public void setFaculty(String faculty) {
-		this.faculty = faculty;
-	}
-
 	public String getFieldOfStudies() {
 		return fieldOfStudies;
 	}
 
-	public void setFieldOfStudies(String fieldOfStudies) {
-		this.fieldOfStudies = fieldOfStudies;
-	}
-
 	public int getIndexNumber() {
 		return indexNumber;
-	}
-
-	public void setIndexNumber(int indexNumber) {
-		this.indexNumber = indexNumber;
 	}
 }
