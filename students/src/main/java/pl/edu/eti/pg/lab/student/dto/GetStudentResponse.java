@@ -1,6 +1,5 @@
 package pl.edu.eti.pg.lab.student.dto;
 
-import pl.edu.eti.pg.lab.faculty.entity.Faculty;
 import pl.edu.eti.pg.lab.student.entity.Student;
 
 import java.util.function.Function;
@@ -10,7 +9,7 @@ public class GetStudentResponse {
 
 	private String surname;
 
-	private Faculty faculty;
+	private String faculty;
 
 	private String fieldOfStudies;
 
@@ -19,10 +18,10 @@ public class GetStudentResponse {
 	public static Function<Student, GetStudentResponse> entityToDtoMapper() {
 		return request ->
 				new GetStudentResponse(request.getName(), request.getSurname(),
-						request.getFaculty(), request.getFieldOfStudies(), request.getIndexNumber());
+						request.getFaculty().getName(), request.getFieldOfStudies(), request.getIndexNumber());
 	}
 
-	public GetStudentResponse(String name, String surname, Faculty faculty, String fieldOfStudies, int indexNumber) {
+	public GetStudentResponse(String name, String surname, String faculty, String fieldOfStudies, int indexNumber) {
 		this.name = name;
 		this.surname = surname;
 		this.faculty = faculty;
@@ -46,11 +45,11 @@ public class GetStudentResponse {
 		this.surname = surname;
 	}
 
-	public Faculty getFaculty() {
+	public String getFaculty() {
 		return faculty;
 	}
 
-	public void setFaculty(Faculty faculty) {
+	public void setFaculty(String faculty) {
 		this.faculty = faculty;
 	}
 

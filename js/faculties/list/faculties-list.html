@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Faculties</title>
+    <link rel="stylesheet" href="../../styles.css"/>
+    <script src="../../script.js" defer="defer"></script>
+    <script type="module" src="faculties-list.js" defer="defer"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Simple University</h1>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="faculties-list.html">Faculties</a></li>
+            </ul>
+        </nav>
+
+        <section class="main-section">
+            <article class="text--justified">
+                <header><h2>Faculties</h2></header>
+                <table class="data-table">
+                    <thead>
+                    <tr>
+                        <th>name</th>
+                        <th>view</th>
+                        <th>edit</th>
+                        <th>delete</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                    <tr>
+                        <td>name</td>
+                        <td><a href="#">view</a></td>
+                        <td><a href="#">edit</a></td>
+                        <td>
+                            <button class="ui-button ui-control">delete</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <a href="../add/faculty-add.html">Add faculty</a>
+            </article>
+        </section>
+
+
+
+        <footer class="footer">
+            <p>Copyright &copy; 2020, Rafał Kulik</p>
+        </footer>
+    </div>
+</body>
+</html>

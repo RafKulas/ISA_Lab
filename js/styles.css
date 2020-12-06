@@ -1,0 +1,102 @@
+body {
+    background-color: #6ec85f;
+}
+
+.container {
+    margin: 50px auto;
+    width: 1000px;
+}
+
+header {
+    text-align: right;
+    background: #5aa04b;
+    color: #3c6432;
+    font-weight: bold;
+}
+
+header h1 {
+    margin: 0;
+    padding: 10px;
+    font-style: italic;
+}
+
+nav {
+    background-color: #5aa04b;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline-block;
+}
+
+nav a {
+    display: inline-block;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #3c6432;
+    font-weight: bold;
+}
+
+nav a:hover {
+    background-color: #3c6432;
+    color: #5aa04b;
+}
+
+.main-section {
+    padding: 10px;
+    background-color: #e2f7e0;
+}
+
+.ui-control:focus {
+    outline: none;
+}
+
+.ui-button {
+    height: 24px;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.ui-input {
+    height: 20px;
+}
+
+.ui-textarea {
+
+}
+
+.details-grid {
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: 100px 300px;
+}
+
+.data-table {
+    border-collapse: collapse;
+}
+
+.data-table td, .data-table th {
+    padding: 6px;
+}
+
+.data-table thead {
+    font-weight: bold;
+    background-color: #5aa04b;
+    color: #3c6432;
+}
+
+.data-table tbody tr:hover {
+    background-color: #96C4D8;
+}
+
+.form {
+    display: grid;
+    grid-template-columns: 100px 200px;
+    grid-gap: 10px;
+}

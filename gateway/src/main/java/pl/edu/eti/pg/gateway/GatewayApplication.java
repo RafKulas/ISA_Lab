@@ -28,23 +28,22 @@ public class GatewayApplication {
 						.uri("http://localhost:8081"))
 				.route("students", r -> r.host("localhost:8080")
 						.and()
-						.path("/api/students/**")
-						.uri("http://localhost:8082"))
+						.path("/api/students/**", "/api/faculties/**")
+						.uri("http://localhost:8085"))
 				.build();
 	}
 
-//	@Bean
-//	public CorsWebFilter corsWebFilter() {
-//
-//		final CorsConfiguration corsConfig = new CorsConfiguration();
-//		corsConfig.setAllowedOrigins(Collections.singletonList("*"));
-//		corsConfig.setMaxAge(3600L);
-//		corsConfig.setAllowedMethods(Arrays.asList("GET", "POST", "DELETE", "PUT"));
-//		corsConfig.addAllowedHeader("*");
-//
-//		final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-//		source.registerCorsConfiguration("/**", corsConfig);
-//
-//		return new CorsWebFilter(source);
-//	}
+	@Bean
+	public CorsWebFilter corsWebFilter() {
+		final CorsConfiguration corsConfig = new CorsConfiguration();
+		corsConfig.setAllowedOrigins(Collections.singletonList("*"));
+		corsConfig.setMaxAge(3600L);
+		corsConfig.setAllowedMethods(Arrays.asList("GET", "POST", "DELETE", "PUT"));
+		corsConfig.addAllowedHeader("*");
+
+		final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+		source.registerCorsConfiguration("/**", corsConfig);
+
+		return new CorsWebFilter(source);
+	}
 }

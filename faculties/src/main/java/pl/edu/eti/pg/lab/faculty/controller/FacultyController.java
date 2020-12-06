@@ -41,7 +41,7 @@ public class FacultyController {
 											  UriComponentsBuilder builder) {
 		Faculty faculty = CreateFacultyRequest
 				.dtoToEntityMapper().apply(request);
-		faculty = facultyService.create(faculty);
+		facultyService.create(faculty);
 		return ResponseEntity.created(
 				builder.pathSegment("api", "faculties", "{name}")
 				.buildAndExpand(faculty.getName()).toUri()).build();

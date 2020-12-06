@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Faculties</title>
+    <link rel="stylesheet" href="../../styles.css"/>
+    <script src="../../script.js" defer="defer"></script>
+    <script type="module" src="faculty-view.js" defer="defer"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Simple University</h1>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../list/faculties-list.html">Faculties</a></li>
+            </ul>
+        </nav>
+
+        <section class="main-section">
+            <article class="text--justified">
+                <header><h2>Faculty</h2></header>
+                <section>
+                    <h3>Details</h3>
+                    <div class="details-grid">
+                        <label for="name">Name:</label><span id="name">name</span>
+                        <label for="dean">Dean:</label><span id="dean">dean</span>
+                        <label for="numberOfStudents">Number of students:</label><span id="numberOfStudents">0</span>
+                    </div>
+                </section>
+                <section>
+                    <h3>Students</h3>
+                    <table class="data-table">
+                        <thead>
+                        <tr>
+                            <th>name</th>
+                            <th>surname</th>
+                            <th>index number</th>
+                            <th>view</th>
+                            <th>edit</th>
+                            <th>delete</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                        <tr>
+                            <td>name</td>
+                            <th>surname</th>
+                            <th>0</th>
+                            <td><a href="#">view</a></td>
+                            <td><a href="#">edit</a></td>
+                            <td>
+                                <button class="ui-button ui-control">delete</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <a href="#" id="add">Add student to faculty...</a>
+                </section>
+            </article>
+        </section>
+
+        <footer class="footer">
+            <p>Copyright &copy; 2020, Rafał Kulik</p>
+        </footer>
+    </div>
+</body>
+</html>

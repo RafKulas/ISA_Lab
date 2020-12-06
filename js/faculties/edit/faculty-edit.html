@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Faculties</title>
+    <link rel="stylesheet" href="../../styles.css"/>
+    <script src="../../script.js" defer="defer"></script>
+    <script type="module" src="faculty-edit.js" defer="defer"></script>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>Simple University</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="../list/faculties-list.html">Faculties</a></li>
+        </ul>
+    </nav>
+
+    <section class="main-section">
+        <article class="text--justified">
+            <header><h2>Faculty</h2></header>
+
+            <section class="main-section">
+                <article class="text--justified">
+                    <header><h2>Edit faculty info</h2></header>
+                    <form class="form" id="infoForm">
+                        <label for="name">Name:</label>
+                        <input class="ui-control ui-input" id="name" name="name"/>
+
+                        <label for="dean">Dean:</label>
+                        <input class="ui-control ui-input" id="dean" name="dean" />
+
+                        <label for="numberOfStudents">Number of students:</label>
+                        <input class="ui-control" id="numberOfStudents" name="numberOfStudents" type="number"/>
+
+                        <input class="ui-control ui-button" type="submit" name="Update"/>
+                    </form>
+                </article>
+            </section>
+        </article>
+    </section>
+
+    <footer class="footer">
+        <p>Copyright &copy; 2020, Rafał Kulik</p>
+    </footer>
+</div>
+</body>
+</html>

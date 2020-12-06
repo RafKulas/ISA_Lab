@@ -40,8 +40,9 @@ public class FacultyService {
 	}
 
 	@Transactional
-	public Faculty create(Faculty entity) {
-		return repository.save(entity);
+	public void create(Faculty entity) {
+		repository.save(entity);
+		//eventRepository.create(entity);
 	}
 
 	@Transactional

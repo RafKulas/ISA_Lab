@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Faculties</title>
+    <link rel="stylesheet" href="../../styles.css"/>
+    <script src="../../script.js" defer="defer"></script>
+    <script type="module" src="student-add.js" defer="defer"></script>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>Simple University</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="../../faculties/list/faculties-list.html">Faculties</a></li>
+        </ul>
+    </nav>
+
+    <section class="main-section">
+        <article class="text--justified">
+            <header><h2>Student</h2></header>
+
+            <section class="main-section">
+                <article class="text--justified">
+                    <header><h2>Add new student</h2></header>
+                    <form class="form" id="infoForm">
+
+                        <label for="name">Name:</label>
+                        <input class="ui-control ui-input" id="name" name="name"/>
+
+                        <label for="surname">Surname:</label>
+                        <input class="ui-control ui-input" id="surname" name="surname"/>
+
+                        <label for="fieldOfStudies">Field of studies:</label>
+                        <input class="ui-control ui-control" id="fieldOfStudies" name="numberOfStudents"/>
+
+                        <label for="indexNumber">Index Number:</label>
+                        <input class="ui-control ui-input" id="indexNumber" name="indexNumber" min="100000" max="999999"/>
+
+                        <input class="ui-control ui-button" type="submit" name="Add"/>
+                    </form>
+                </article>
+            </section>
+        </article>
+    </section>
+
+    <footer class="footer">
+        <p>Copyright &copy; 2020, Rafał Kulik</p>
+    </footer>
+</div>
+</body>
+</html>
