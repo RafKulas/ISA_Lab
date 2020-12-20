@@ -16,11 +16,14 @@ import java.util.Collections;
 
 @SpringBootApplication
 public class GatewayApplication {
-	@Value("${faculties_url:http://faculties:8081/api/}")
+	@Value("${faculties_url}")
 	String facultiesUrl;
 
-	@Value("${students_url:http://students:8085/api/}")
+	@Value("${students_url}")
 	String studentsUrl;
+
+	@Value("${gateway_url}")
+	String gatewayUrl;
 
 	public static void main(String[] args) {
 		SpringApplication.run(GatewayApplication.class, args);
@@ -29,15 +32,16 @@ public class GatewayApplication {
 	@Bean
 	public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
 		return builder.routes()
-				.route("faculties", r -> r.host("localhost:8080")
+				.route("faculties", r -> r.host(gatewayUrl)
 						.and()
 						.path("/api/faculties/**")
 						.uri(facultiesUrl))
-				.route("students", r -> r.host("localhost:8080")
+				.route("students", r -> r.host(gatewayUrl)
 						.and()
-						.path("/api/students/**", "/api/faculties/**")
+						.path("/api/students/**")
 						.uri(studentsUrl))
-				.build();	}
+				.build();
+	}
 
 	@Bean
 	public CorsWebFilter corsWebFilter() {

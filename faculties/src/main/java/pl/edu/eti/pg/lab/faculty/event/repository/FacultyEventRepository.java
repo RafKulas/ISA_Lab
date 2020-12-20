@@ -14,7 +14,7 @@ public class FacultyEventRepository {
 	private RestTemplate restTemplate;
 
 	@Autowired
-	public FacultyEventRepository(@Value("${study.students.url}") String baseURL) {
+	public FacultyEventRepository(@Value("${students_url}") String baseURL) {
 		restTemplate = new RestTemplateBuilder().rootUri(baseURL).build();
 	}
 

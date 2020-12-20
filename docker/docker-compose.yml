@@ -17,8 +17,6 @@ services:
   front:
     build: front
     restart: on-failure
-    ports:
-      - "0.0.0.0:8000:8000"
     depends_on:
       - gateway
       - students
@@ -27,25 +25,20 @@ services:
   gateway:
     build: gateway
     restart: on-failure
-    ports:
-      - "0.0.0.0:8080:8080"
     environment:
-      - faculties_url=http://faculties:8081/api
-      - students_url=http://students:8085/api
+      - faculties_url=http://faculties
+      - students_url=http://students
+      - gateway_url=gateway
 
   students:
     build: students
     restart: on-failure
-    ports:
-      - "0.0.0.0:8085:8085"
 
   faculties:
     build: faculties
     restart: on-failure
-    ports:
-      - "0.0.0.0:8081:8081"
     environment:
-      - students_url=http://students:8085/api/
+      - students_url=http://students/api
 
 networks:
   default:
