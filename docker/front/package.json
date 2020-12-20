@@ -13,7 +13,7 @@
   "license": "MIT",
   "author": "Rafał Kulik",
   "scripts": {
-    "dev": "http-server -p 80 -c-1"
+    "dev": "../../js/node_modules/.bin/http-server -p 80 -c-1"
   },
   "devDependencies": {
     "http-server": "0.12.3"

@@ -1,5 +1,7 @@
 package pl.edu.eti.pg.gateway;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.gateway.route.RouteLocator;
@@ -14,6 +16,11 @@ import java.util.Collections;
 
 @SpringBootApplication
 public class GatewayApplication {
+	@Value("${faculties_url:http://faculties:8081/api/}")
+	String facultiesUrl;
+
+	@Value("${students_url:http://students:8085/api/}")
+	String studentsUrl;
 
 	public static void main(String[] args) {
 		SpringApplication.run(GatewayApplication.class, args);
@@ -25,13 +32,12 @@ public class GatewayApplication {
 				.route("faculties", r -> r.host("localhost:8080")
 						.and()
 						.path("/api/faculties/**")
-						.uri("http://localhost:8081"))
+						.uri(facultiesUrl))
 				.route("students", r -> r.host("localhost:8080")
 						.and()
 						.path("/api/students/**", "/api/faculties/**")
-						.uri("http://localhost:8085"))
-				.build();
-	}
+						.uri(studentsUrl))
+				.build();	}
 
 	@Bean
 	public CorsWebFilter corsWebFilter() {

@@ -24,7 +24,7 @@ function addStudent(event) {
             console.log(`State: ${this.readyState}, Status: ${this.status}`)
             if (this.readyState === 4 && this.status === 201) {
                 alert("Student added!")
-                window.location.href = `../../faculties/view/faculty-view.html?faculty=${getParameterByName('faculty')}`
+                window.location.href = `../../faculties/view/faculty-view.html`
             }
         };
 

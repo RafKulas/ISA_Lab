@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Faculties</title>
-    <link rel="stylesheet" href="../../../styles.css"/>
-    <script src="../../../script.js" defer="defer"></script>
-    <script type="module" src="faculty-add.js" defer="defer"></script>
+    <link rel="stylesheet" href="../../styles.css"/>
+    <script src="../../script.js" defer="defer"></script>
+    <script type="module" src="faculty-edit.js" defer="defer"></script>
 </head>
 <body>
 <div class="container">
@@ -15,7 +15,7 @@
 
     <nav>
         <ul>
-            <li><a href="../../../index.html">Home</a></li>
+            <li><a href="../../index.html">Home</a></li>
             <li><a href="../list/faculties-list.html">Faculties</a></li>
         </ul>
     </nav>
@@ -26,7 +26,7 @@
 
             <section class="main-section">
                 <article class="text--justified">
-                    <header><h2>Add new faculty</h2></header>
+                    <header><h2>Edit faculty info</h2></header>
                     <form class="form" id="infoForm">
                         <label for="name">Name:</label>
                         <input class="ui-control ui-input" id="name" name="name"/>
@@ -37,7 +37,7 @@
                         <label for="numberOfStudents">Number of students:</label>
                         <input class="ui-control" id="numberOfStudents" name="numberOfStudents" type="number"/>
 
-                        <input class="ui-control ui-button" type="submit" name="Add">
+                        <input class="ui-control ui-button" type="submit" name="Update"/>
                     </form>
                 </article>
             </section>

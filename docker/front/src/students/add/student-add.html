@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Faculties</title>
-    <link rel="stylesheet" href="../../../styles.css"/>
-    <script src="../../../script.js" defer="defer"></script>
-    <script type="module" src="student-edit.js" defer="defer"></script>
+    <link rel="stylesheet" href="../../styles.css"/>
+    <script src="../../script.js" defer="defer"></script>
+    <script type="module" src="student-add.js" defer="defer"></script>
 </head>
 <body>
 <div class="container">
@@ -15,7 +15,7 @@
 
     <nav>
         <ul>
-            <li><a href="../../../index.html">Home</a></li>
+            <li><a href="../../index.html">Home</a></li>
             <li><a href="../../faculties/list/faculties-list.html">Faculties</a></li>
         </ul>
     </nav>
@@ -26,7 +26,7 @@
 
             <section class="main-section">
                 <article class="text--justified">
-                    <header><h2>Edit faculty info</h2></header>
+                    <header><h2>Add new student</h2></header>
                     <form class="form" id="infoForm">
 
                         <label for="name">Name:</label>
@@ -36,9 +36,12 @@
                         <input class="ui-control ui-input" id="surname" name="surname"/>
 
                         <label for="fieldOfStudies">Field of studies:</label>
-                        <input class="ui-control" id="fieldOfStudies" name="numberOfStudents"/>
+                        <input class="ui-control ui-control" id="fieldOfStudies" name="numberOfStudents"/>
 
-                        <input class="ui-control ui-button" type="submit" name="Update"/>
+                        <label for="indexNumber">Index Number:</label>
+                        <input class="ui-control ui-input" id="indexNumber" name="indexNumber" min="100000" max="999999"/>
+
+                        <input class="ui-control ui-button" type="submit" name="Add"/>
                     </form>
                 </article>
             </section>
