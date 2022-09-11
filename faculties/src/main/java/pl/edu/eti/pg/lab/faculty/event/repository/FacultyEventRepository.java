@@ -11,7 +11,7 @@ import pl.edu.eti.pg.lab.faculty.event.dto.CreateFacultyRequest;
 @Repository
 public class FacultyEventRepository {
 
-	private RestTemplate restTemplate;
+	private final RestTemplate restTemplate;
 
 	@Autowired
 	public FacultyEventRepository(@Value("${students_url}") String baseURL) {

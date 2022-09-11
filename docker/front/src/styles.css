@@ -67,10 +67,6 @@ nav a:hover {
     height: 20px;
 }
 
-.ui-textarea {
-
-}
-
 .details-grid {
     display: grid;
     grid-gap: 5px;

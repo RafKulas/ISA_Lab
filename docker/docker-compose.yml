@@ -26,9 +26,9 @@ services:
     build: gateway
     restart: on-failure
     environment:
-      - faculties_url=http://faculties
-      - students_url=http://students
-      - gateway_url=gateway
+      - FACULTIES_API_URL=http://faculties
+      - STUDENTS_API_URL=http://students
+      - GATEWAY_API_URL=gateway
 
   students:
     build: students
@@ -38,7 +38,7 @@ services:
     build: faculties
     restart: on-failure
     environment:
-      - students_url=http://students/api
+      - STUDENTS_API_URL=http://students/api
 
 networks:
   default:

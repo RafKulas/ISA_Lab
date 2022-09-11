@@ -69,10 +69,10 @@ public class FacultyController {
 		return ResponseEntity.notFound().build();
 	}
 
-//	@GetMapping("dean/{dean}")
-//	public ResponseEntity<GetFacultyResponse> getFacultyByDean(@PathVariable("dean") String dean) {
-//		Optional<Faculty> faculty = facultyService.findByDean(dean);
-//		return faculty.map(f -> ResponseEntity.ok(GetFacultyResponse.entityToDtoMapper().apply(f)))
-//				.orElseGet(() -> ResponseEntity.notFound().build());
-//	}
+	@GetMapping("dean/{dean}")
+	public ResponseEntity<GetFacultyResponse> getFacultyByDean(@PathVariable("dean") String dean) {
+		Optional<Faculty> faculty = facultyService.findByDean(dean);
+		return faculty.map(f -> ResponseEntity.ok(GetFacultyResponse.entityToDtoMapper().apply(f)))
+				.orElseGet(() -> ResponseEntity.notFound().build());
+	}
 }

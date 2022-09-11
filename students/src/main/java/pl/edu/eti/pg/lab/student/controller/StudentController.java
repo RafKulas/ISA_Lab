@@ -31,7 +31,7 @@ public class StudentController {
 		List<Student> students = studentService.findAll();
 		if (faculty != null) {
 			students = students.stream()
-					.filter(s -> s.getFaculty().getName().toLowerCase().equals(faculty.toLowerCase()))
+					.filter(s -> s.getFaculty().getName().equalsIgnoreCase(faculty))
 					.collect(Collectors.toList());
 		}
 		return ResponseEntity.ok(GetStudentsResponse.entityToDtoMapper().apply(students));
