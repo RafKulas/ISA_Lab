@@ -15,7 +15,7 @@ services:
       - ./nginx.conf:/etc/nginx/nginx.conf
 
   front:
-    build: front
+    build: docker/front
     restart: on-failure
     depends_on:
       - gateway
@@ -23,7 +23,7 @@ services:
       - faculties
 
   gateway:
-    build: gateway
+    build: docker/gateway
     restart: on-failure
     environment:
       - FACULTIES_API_URL=http://faculties
@@ -31,11 +31,11 @@ services:
       - GATEWAY_API_URL=gateway
 
   students:
-    build: students
+    build: docker/students
     restart: on-failure
 
   faculties:
-    build: faculties
+    build: docker/faculties
     restart: on-failure
     environment:
       - STUDENTS_API_URL=http://students/api
