@@ -12,7 +12,7 @@ services:
       - students
       - faculties
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./docker/nginx.conf:/etc/nginx/nginx.conf
 
   front:
     build: docker/front
@@ -35,7 +35,11 @@ services:
     restart: on-failure
 
   faculties:
-    build: docker/faculties
+    build:
+      context: ./
+      target: faculties-service-image
+      dockerfile: docker/faculties/Dockerfile
+      network: host
     restart: on-failure
     environment:
       - STUDENTS_API_URL=http://students/api
