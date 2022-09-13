@@ -2,6 +2,7 @@ package pl.edu.eti.pg.lab.faculty.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import pl.edu.eti.pg.lab.faculty.entity.Faculty;
 
@@ -9,6 +10,7 @@ import java.util.function.BiFunction;
 
 @Getter
 @Setter
+@NoArgsConstructor
 @AllArgsConstructor
 public class UpdateFacultyRequest {
 

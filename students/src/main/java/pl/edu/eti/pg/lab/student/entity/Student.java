@@ -21,15 +21,19 @@ import java.io.Serializable;
 @Table(name = "students")
 public class Student implements Serializable {
 	@Id
+	@Column(name = "index_number")
 	private int indexNumber; //PK
 
+	@Column(name = "name")
 	private String name;
 
+	@Column(name = "surname")
 	private String surname;
 
 	@ManyToOne
 	@JoinColumn(name = "faculty")
 	private Faculty faculty;
 
+	@Column(name = "field_of_studies")
 	private String fieldOfStudies;
 }

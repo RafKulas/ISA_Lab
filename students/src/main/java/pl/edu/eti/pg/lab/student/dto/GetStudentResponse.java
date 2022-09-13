@@ -18,8 +18,12 @@ public class GetStudentResponse {
 	private int indexNumber;
 
 	public static Function<Student, GetStudentResponse> entityToDtoMapper() {
-		return request ->
-				new GetStudentResponse(request.getName(), request.getSurname(),
-						request.getFaculty().getName(), request.getFieldOfStudies(), request.getIndexNumber());
+		return request -> new GetStudentResponse(
+				request.getName(),
+				request.getSurname(),
+				request.getFaculty().getName(),
+				request.getFieldOfStudies(),
+				request.getIndexNumber()
+		);
 	}
 }

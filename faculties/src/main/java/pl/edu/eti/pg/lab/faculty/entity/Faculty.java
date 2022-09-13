@@ -19,14 +19,14 @@ import java.io.Serializable;
 @Entity
 @Table(name = "faculties")
 public class Faculty implements Serializable {
-	private int amountOfStudents;
 
 	@Id
+	@Column(name = "name")
 	private String name;
 
-	@Column(unique = true)
+	@Column(name = "dean", unique = true)
 	private String dean;
 
-//	@OneToMany(cascade = CascadeType.REMOVE, mappedBy = "faculty")
-//	private List<Student> studentList;
+	@Column(name = "amount_of_students")
+	private int amountOfStudents;
 }

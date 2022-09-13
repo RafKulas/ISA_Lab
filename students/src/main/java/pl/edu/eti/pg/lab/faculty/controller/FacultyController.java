@@ -28,14 +28,18 @@ public class FacultyController {
 				.dtoToEntityMapper().apply(request);
 		facultyService.create(faculty);
 		return ResponseEntity.created(
-				builder.pathSegment("api", "faculties", "{name}")
-				.buildAndExpand(faculty.getName()).toUri()).build();
+						builder
+								.pathSegment("api", "faculties", "{name}")
+								.buildAndExpand(faculty.getName())
+								.toUri()
+				)
+				.build();
 	}
 
 	@DeleteMapping("{name}")
 	public ResponseEntity<Void> deleteFaculty(@PathVariable("name") String name) {
 		Optional<Faculty> faculty = facultyService.find(name);
-		if(faculty.isPresent()) {
+		if (faculty.isPresent()) {
 			facultyService.delete(faculty.get());
 			return ResponseEntity.accepted().build();
 		}

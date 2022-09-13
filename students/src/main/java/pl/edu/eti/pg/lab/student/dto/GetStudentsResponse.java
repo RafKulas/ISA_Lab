@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Collection;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.function.Function;
 
@@ -18,12 +17,13 @@ public class GetStudentsResponse {
 
 	public static Function<Collection<pl.edu.eti.pg.lab.student.entity.Student>, GetStudentsResponse> entityToDtoMapper() {
 		return students -> {
-			List<Student> studentsResponse = new LinkedList<>();
-			students.stream()
-					.map(student ->
-							new Student(student.getIndexNumber(), student.getName(),
-									student.getSurname()))
-					.forEach(studentsResponse::add);
+			List<Student> studentsResponse = students.stream()
+					.map(student -> new Student(
+							student.getIndexNumber(),
+							student.getName(),
+							student.getSurname()
+					))
+					.toList();
 			return new GetStudentsResponse(studentsResponse);
 		};
 	}
